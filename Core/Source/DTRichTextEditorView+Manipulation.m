@@ -36,7 +36,19 @@
 {
 	DTTextRange *textRange = (DTTextRange *)range;
 	
-	return [self.attributedTextContentView.layoutFrame.attributedStringFragment attributedSubstringFromRange:[textRange NSRangeValue]];
+    NSRange finalRange = [textRange NSRangeValue];
+    
+    NSAttributedString *attS = self.attributedTextContentView.layoutFrame.attributedStringFragment;
+    
+    if(finalRange.location+finalRange.length>[attS length] || finalRange.location<0){
+        finalRange.location=[attS length]-1;
+        if(finalRange.location<0)
+            finalRange.location=0;
+        finalRange.length=0;
+    }
+    
+    return [attS attributedSubstringFromRange:finalRange];
+
 }
 
 - (DTCoreTextGlyphRun *)glyphRunAtPosition:(UITextPosition *)position

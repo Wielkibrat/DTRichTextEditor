@@ -2273,6 +2273,13 @@ typedef enum
 	NSRange myRange = [range NSRangeValue];
 	
 	// extend range to include part of composed character sequences as well
+    if(myRange.location + myRange.length>[string length] || myRange.location<0){
+        myRange.location = [string length]-1;
+        if(myRange.location<0)
+            myRange.location=0;
+        myRange.length = 0;
+    }
+
 	NSRange composedRange = [string rangeOfComposedCharacterSequenceAtIndex:myRange.location];
 	
 	if (composedRange.location<myRange.location)
@@ -2765,8 +2772,6 @@ typedef enum
 
 - (UITextRange *)characterRangeByExtendingPosition:(DTTextPosition *)position inDirection:(UITextLayoutDirection)direction
 {
-    [[NSException exceptionWithName:@"Not Implemented" reason:@"When is this method being used?" userInfo:nil] raise];
-    
 	DTTextPosition *end = (id)[self endOfDocument];
 	
 	return [DTTextRange textRangeFromStart:position toEnd:end];
