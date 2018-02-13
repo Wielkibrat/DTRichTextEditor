@@ -40,10 +40,8 @@
     
     NSAttributedString *attS = self.attributedTextContentView.layoutFrame.attributedStringFragment;
     
-    if(finalRange.location+finalRange.length>[attS length] || finalRange.location<0){
+    if(finalRange.location+finalRange.length>[attS length]){
         finalRange.location=[attS length]-1;
-        if(finalRange.location<0)
-            finalRange.location=0;
         finalRange.length=0;
     }
     

@@ -305,7 +305,7 @@ typedef enum
 	// --- notifications
 	
 	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-	//[center addObserver:self selector:@selector(cursorDidBlink:) name:DTCursorViewDidBlink object:nil];
+	[center addObserver:self selector:@selector(cursorDidBlink:) name:DTCursorViewDidBlink object:nil];
 	[center addObserver:self selector:@selector(menuDidHide:) name:UIMenuControllerDidHideMenuNotification object:nil];
 	[center addObserver:self selector:@selector(loupeDidHide:) name:DTLoupeDidHide object:nil];
 	[center addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
@@ -2273,10 +2273,8 @@ typedef enum
 	NSRange myRange = [range NSRangeValue];
 	
 	// extend range to include part of composed character sequences as well
-    if(myRange.location + myRange.length>[string length] || myRange.location<0){
+    if(myRange.location + myRange.length>[string length]){
         myRange.location = [string length]-1;
-        if(myRange.location<0)
-            myRange.location=0;
         myRange.length = 0;
     }
 
