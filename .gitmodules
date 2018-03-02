@@ -1,6 +1,6 @@
 [submodule "Core/Externals/DTLoupe"]
 	path = Core/Externals/DTLoupe
-	url = https://github.com/Cocoanetics/DTLoupe.git
+	url = https://github.com/WielkiBrat/DTLoupe.git
 [submodule "Core/Externals/DTCoreText"]
 	path = Core/Externals/DTCoreText
 	url = https://github.com/Cocoanetics/DTCoreText.git
