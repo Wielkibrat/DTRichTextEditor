@@ -1105,6 +1105,17 @@ typedef enum
 
 - (void)handleTap:(UITapGestureRecognizer *)gesture
 {
+    bool keyboardPresent = false;
+    for (UIWindow *window in [[UIApplication sharedApplication] windows])
+    {
+        if ([NSStringFromClass([window class]) rangeOfString:@"Keyboard"].location!=NSNotFound)
+            keyboardPresent = YES;
+    }
+    
+    if(!keyboardPresent){
+        [self resignFirstResponder];
+        [self becomeFirstResponder];
+    }
 	// Bail out if not recognized
 	if (gesture.state != UIGestureRecognizerStateRecognized)
 	{

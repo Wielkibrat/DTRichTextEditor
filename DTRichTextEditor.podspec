@@ -3,12 +3,12 @@ Pod::Spec.new do |spec|
   spec.version      = '1.6.12'
   spec.platform     = :ios, '6.0'
   spec.license      = 'BSD'
-  spec.source       = { :git => 'https://github.com/Cocoanetics/DTRichTextEditor.git', :tag => spec.version.to_s }
+  spec.source       = { :git => 'https://github.com/Wielkibrat/DTRichTextEditor.git', :tag => spec.version.to_s }
   spec.source_files = 'Core/Source/*.{h,m,c}', 'Core/*.h'
   spec.prefix_header_contents = '#import "DTLog.h"'
   spec.dependency 'DTCoreText', '~>1.6.16'
   spec.dependency 'DTWebArchive', '~>0.0.2'
-  spec.dependency 'DTLoupe', '~>1.5.8'
+  spec.dependency 'DTLoupe', :git => 'https://github.com/Wielkibrat/DTLoupe.git'
   spec.dependency 'DTFoundation/Core', '~>1.7.8'
   spec.frameworks   = 'AssetsLibrary'
   spec.requires_arc = true
