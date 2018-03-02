@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
   spec.prefix_header_contents = '#import "DTLog.h"'
   spec.dependency 'DTCoreText', '~>1.6.16'
   spec.dependency 'DTWebArchive', '~>0.0.2'
-  spec.dependency 'DTLoupe', '~>1.5.8'
+  spec.dependency 'DTLoupe2'
   spec.dependency 'DTFoundation/Core', '~>1.7.8'
   spec.frameworks   = 'AssetsLibrary'
   spec.requires_arc = true
